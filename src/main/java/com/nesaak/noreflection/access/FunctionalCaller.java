@@ -2,11 +2,11 @@ package com.nesaak.noreflection.access;
 
 import java.util.function.Function;
 
-public class FunctionCaller implements DynamicCaller {
+public class FunctionalCaller implements DynamicCaller {
 
     private Function function;
 
-    public FunctionCaller(Function function) {
+    public FunctionalCaller(Function function) {
         this.function = function;
     }
 

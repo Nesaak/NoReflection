@@ -2,7 +2,8 @@ package com.nesaak.noreflection;
 
 import com.nesaak.noreflection.access.DynamicCaller;
 import com.nesaak.noreflection.access.FieldAccess;
-import com.nesaak.noreflection.access.FunctionCaller;
+import com.nesaak.noreflection.access.FunctionalCaller;
+import com.nesaak.noreflection.access.FunctionalFieldAccess;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -23,14 +24,14 @@ public class NoReflection {
     }
 
     public FieldAccess get(Field field) {
-        return new FieldAccess(manager.getGetter(field), manager.getSetter(field));
+        return new FunctionalFieldAccess(manager.getGetter(field), manager.getSetter(field));
     }
 
     public DynamicCaller get(Constructor constructor) {
-        return new FunctionCaller(manager.getConstructor(constructor));
+        return new FunctionalCaller(manager.getConstructor(constructor));
     }
 
     public DynamicCaller get(Method method) {
-        return new FunctionCaller(manager.getMethod(method));
+        return new FunctionalCaller(manager.getMethod(method));
     }
 }
