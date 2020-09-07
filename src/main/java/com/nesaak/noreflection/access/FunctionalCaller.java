@@ -4,7 +4,7 @@ import java.util.function.Function;
 
 public class FunctionalCaller implements DynamicCaller {
 
-    private Function function;
+    private final Function function;
 
     public FunctionalCaller(Function function) {
         this.function = function;

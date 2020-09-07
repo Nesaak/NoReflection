@@ -5,8 +5,8 @@ import java.util.function.Function;
 
 public class FunctionalFieldAccess implements FieldAccess {
 
-    private Function getter;
-    private BiConsumer setter;
+    private final Function getter;
+    private final BiConsumer setter;
 
     public FunctionalFieldAccess(Function getter, BiConsumer setter) {
         this.getter = getter;
