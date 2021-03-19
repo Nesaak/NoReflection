@@ -2,12 +2,14 @@ package com.nesaak.noreflection;
 
 import com.nesaak.noreflection.access.DynamicCaller;
 import com.nesaak.noreflection.access.FieldAccess;
+import com.nesaak.noreflection.access.FinalFieldAccess;
 import com.nesaak.noreflection.access.FunctionalCaller;
 import com.nesaak.noreflection.access.FunctionalFieldAccess;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 public class NoReflection {
 
@@ -24,6 +26,9 @@ public class NoReflection {
     }
 
     public FieldAccess get(Field field) {
+        if (Modifier.isFinal(field.getModifiers())) {
+            return new FinalFieldAccess(field);
+        }
         return new FunctionalFieldAccess(manager.getGetter(field), manager.getSetter(field));
     }
 

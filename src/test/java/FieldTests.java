@@ -29,6 +29,9 @@ public class FieldTests {
 
     private static Object staticTest;
 
+    private final Object finalTest = new Object();
+    private static final Object finalStaticTest = new Object();
+
     @Test
     public void testBoolean() throws NoSuchFieldException {
         FieldAccess fieldAccess = NoReflection.shared().get(getClass().getDeclaredField("booleanTest"));
@@ -145,6 +148,22 @@ public class FieldTests {
     public void staticTest() throws NoSuchFieldException {
         Object object = new Object();
         FieldAccess fieldAccess = NoReflection.shared().get(getClass().getDeclaredField("staticTest"));
+        fieldAccess.set(this, object);
+        assert(fieldAccess.get(this).equals(object));
+    }
+
+    @Test
+    public void finalTest() throws NoSuchFieldException {
+        Object object = new Object();
+        FieldAccess fieldAccess = NoReflection.shared().get(getClass().getDeclaredField("finalTest"));
+        fieldAccess.set(this, object);
+        assert(fieldAccess.get(this).equals(object));
+    }
+
+    @Test
+    public void finalStaticTest() throws NoSuchFieldException {
+        Object object = new Object();
+        FieldAccess fieldAccess = NoReflection.shared().get(getClass().getDeclaredField("finalStaticTest"));
         fieldAccess.set(this, object);
         assert(fieldAccess.get(this).equals(object));
     }
