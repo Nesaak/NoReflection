@@ -17,7 +17,7 @@ public class NoReflection {
         return SHARED_INSTANCE;
     }
 
-    private AccessManager manager = new AccessManager();
+    private final AccessManager manager = new AccessManager();
 
     public AccessManager getManager() {
         return manager;
