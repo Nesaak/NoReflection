@@ -31,7 +31,8 @@ Running 100000000 trials to benchmark "field set speed"
 Comparing method points: ["Inline", "Reflection", "NoReflection"]
 Inline took 134ms, average: 1.3494477ns/call
 Reflection took 698ms, average: 6.9854564ns/call
-NoReflection took 157ms, average: 1.57177489ns/call```
+NoReflection took 157ms, average: 1.57177489ns/call
+```
 
 **How To Use It**
 
