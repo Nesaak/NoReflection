@@ -43,7 +43,8 @@ You can use JitPack in order to use NoReflection in your projects. Here is an ex
 <repository>
   <id>jitpack.io</id>
   <url>https://jitpack.io</url>
-</repository>```
+</repository>
+```
 
 ```xml
 <dependency>
